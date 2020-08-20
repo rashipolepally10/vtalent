@@ -1,0 +1,68 @@
+package com.vtalent.java.rashi;
+
+import java.util.Scanner;
+
+public class EmployeeTest1 {
+	private static Scanner input = new Scanner(System.in);
+	private static Employee[] employeeArray;
+
+	public static void readData(int index){
+    Employee  employee = new Employee();
+    System.out.println("Enter employee Id");
+    employee.employeeId =input.nextInt();
+    System.out.println("Enter employee package");
+    employee.employeePackage =input.nextDouble();
+    System.out.println("Enter employee Mobile Number");
+    employee.employeeMobileNo =input.nextLong();
+    if(null !=employeeArray){
+    employeeArray[index]=employee;
+    }
+    }
+    public static void printData(){
+    if(null !=employeeArray){
+    for(int i=0;i<=employeeArray.length-1;i++){
+    Employee employee = employeeArray[i];
+    if(employee!=null){
+    System.out.println(employee.employeeId + "\t" +employee.employeePackage + "\t" +employee.employeeMobileNo + "\t");
+    }
+    }
+    }
+    else{
+    System.out.println("No Data");
+    }
+    }
+   
+    public static void switchdata(int choice){
+    	switch(choice) {
+    	case 0:  System.out.println("Please enter number of employees to insert");
+             int size = input.nextInt();
+        employeeArray = new Employee[size];
+        for(int i=0;i<=size-1 ; i++){
+         readData(i);
+        } 
+        break;
+    	case 1: System.out.println("To Delete the data");
+    	 break;
+    	case 2: System.out.println("To search the data");
+   	 break;
+    	case 3: System.out.println("To print the data");
+    	printData();
+   	 break;
+    	case 4: System.out.println("To update the data");
+   	 break;
+    	case 5: System.out.println("To exit");
+   	 break;
+   	 default: System.out.println("Wrong Choice");
+   	       break;
+    	
+    	}
+    }
+    
+    public static void main(String[] args){
+    	System.out.println("Please enter the choice");
+        int choice = input.nextInt();
+        switchdata(choice);
+   	    	
+      }
+    
+    }
